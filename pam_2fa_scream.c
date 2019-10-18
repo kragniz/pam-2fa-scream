@@ -38,7 +38,7 @@ static bool check_for_big_loud(float big_loud_limit) {
     bool is_big_loud = false;
     float loudest = 0;
 
-    for (size_t i = 0; i < 100; i++) {
+    for (size_t i = 0; i < 500; i++) {
         float loud = get_loudyness();
         if (loud > loudest) {
             loudest = loud;
