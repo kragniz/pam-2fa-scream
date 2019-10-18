@@ -40,7 +40,6 @@ static bool check_for_big_loud(float big_loud_limit) {
 
     for (size_t i = 0; i < 100; i++) {
         float loud = check_loudyness();
-        printf("level: %f\n", loud);
         if (loud > loudest) {
             loudest = loud;
         }
@@ -52,16 +51,15 @@ static bool check_for_big_loud(float big_loud_limit) {
     }
 
     if (!is_big_loud) {
-        printf(
-            "Auth failed: scream louder (%.0f required, only recieved %.0f)\n",
-            big_loud_limit * 100, loudest * 100);
+        printf("Auth failed: you must scream at the computer (%.0f%% required, "
+               "only recieved %.0f%%)\n",
+               big_loud_limit * 100, loudest * 100);
     }
     return is_big_loud;
 }
 
 int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc,
                         const char **argv) {
-    puts("scream pam_sm_authenticate");
     if (check_for_big_loud(0.3)) {
         return PAM_SUCCESS;
     } else {
@@ -70,6 +68,5 @@ int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc,
 }
 
 int pam_sm_setcred(pam_handle_t *pamh, int flags, int argc, const char **argv) {
-    puts("scream pam_sm_setcred");
     return PAM_IGNORE;
 }
