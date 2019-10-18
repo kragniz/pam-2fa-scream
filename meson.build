@@ -5,7 +5,9 @@ project('pam-2fa-scream', 'c',
 cc = meson.get_compiler('c')
 dep_pam = cc.find_library('pam', required: true)
 
-exe = executable('pam_2fa_scream', 'pam_2fa_scream.c',
-  install : true)
-
-test('basic', exe)
+module = shared_module(
+  'pam_2fa_scream',
+  'pam_2fa_scream.c',
+  dependencies: dep_pam,
+  install: true,
+)
