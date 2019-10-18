@@ -4,10 +4,11 @@ project('pam-2fa-scream', 'c',
 
 cc = meson.get_compiler('c')
 dep_pam = cc.find_library('pam', required: true)
+dep_alsa = dependency('alsa', required: true)
 
 module = shared_module(
   'pam_2fa_scream',
   'pam_2fa_scream.c',
-  dependencies: dep_pam,
+  dependencies: [dep_pam, dep_alsa],
   install: true,
 )
