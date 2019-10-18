@@ -7,7 +7,7 @@
 
 #include <alsa/asoundlib.h>
 
-static float check_loudyness(void) {
+static float get_loudyness(void) {
     float result = 0.0f;
     snd_pcm_t *waveform;
 
@@ -39,7 +39,7 @@ static bool check_for_big_loud(float big_loud_limit) {
     float loudest = 0;
 
     for (size_t i = 0; i < 100; i++) {
-        float loud = check_loudyness();
+        float loud = get_loudyness();
         if (loud > loudest) {
             loudest = loud;
         }
