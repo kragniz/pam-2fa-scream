@@ -3,6 +3,19 @@ pam-2fa-scream
 
 Highly secure second factor auth by screaming at your computer.
 
+    [kgz@ayano ~]$ su
+    Password: 
+    Second factor: please scream loudly at your computer
+    Authentication failed: you must scream louder (30% required, only recieved 9%)
+    su: Authentication failure
+    [kgz@ayano ~]$ su
+    Password: 
+    Second factor: please scream loudly at your computer
+    [root@ayano kgz]# 
+
+Building and installing
+-----------------------
+
     meson build
     ninja -C build
 
