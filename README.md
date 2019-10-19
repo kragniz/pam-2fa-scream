@@ -1,5 +1,9 @@
-pam-2fa-scream
-==============
+<p align="center">
+  <img src="https://sr.ht/7AIA.png">
+</p>
+
+<h1 align="center">pam-2fa-scream</h1>
+
 
 Highly secure second factor auth by screaming at your computer.
 
