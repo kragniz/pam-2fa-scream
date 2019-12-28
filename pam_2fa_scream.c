@@ -52,7 +52,7 @@ static bool check_for_big_loud(float big_loud_limit) {
 
     if (!is_big_loud) {
         printf("Authentication failed: you must scream louder (%.0f%% required, "
-               "only recieved %.0f%%)\n",
+               "only received%.0f%%)\n",
                big_loud_limit * 100, loudest * 100);
     }
     return is_big_loud;
